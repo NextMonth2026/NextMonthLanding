@@ -7,6 +7,7 @@ const logo = 'https://res.cloudinary.com/drl0fxrkq/image/upload/v1769952407/8A3D
 const studio = 'https://res.cloudinary.com/drl0fxrkq/image/upload/v1774170533/Screenshot_2026-03-22_at_09.08.31_vfdgiz.png';
 const norman = 'https://res.cloudinary.com/drl0fxrkq/image/upload/v1772064611/1859C19A-9D92-4ED1-A0D9-A65421EA9FAE_xl3ggq.png';
 const primary = { backgroundColor: '#EE28B8', color: '#0A0207' };
+const foundingMailto = 'mailto:hello@nextmonth.io?cc=normannextmonth@gmail.com&subject=Founding%20customer%20access%20request';
 
 function useReveal() {
   const reduce = useReducedMotion();

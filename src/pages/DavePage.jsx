@@ -68,8 +68,8 @@ export default function DavePage() {
         <section className="relative py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <motion.div {...reveal} className="mx-auto mb-14 max-w-3xl text-center">
-              <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">The problem</p>
-              <h2 className="font-display text-[clamp(1.8rem,3.8vw,2.8rem)] font-semibold leading-tight tracking-tightest text-gradient">What happens when the people who know how your business really works are no longer there to explain it?</h2>
+              <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">The daily waste</p>
+              <h2 className="font-display text-[clamp(1.8rem,3.8vw,2.8rem)] font-semibold leading-tight tracking-tightest text-gradient">The future risk matters because today’s inefficiency already exists.</h2>
             </motion.div>
             <div className="grid gap-5 md:grid-cols-3">
               {PROBLEMS.map((c, i) => (
@@ -92,9 +92,9 @@ export default function DavePage() {
             <motion.div {...reveal} className="glass rounded-[2rem] p-8 sm:p-12 lg:p-16">
               <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.22em] text-signal/80">What we believe</p>
               <div className="space-y-5 text-[17px] leading-relaxed text-white/72">
-                <p>Every business has people who quietly become part of the organisation’s memory. They are rarely the loudest. They are often interrupted. They answer the same questions hundreds of times, and carry decisions nobody realises they’re carrying.</p>
-                <p>Most businesses only discover their value when they’re leaving. We believe that’s too late.</p>
-                <p className="font-display text-[19px] font-medium text-white">The Dave Method exists because judgement shouldn’t disappear with the people who earned it.</p>
+                <p>Every business has remarkable people who quietly become the organisation’s shared memory. They are rarely the loudest. They are often interrupted. They answer the same questions hundreds of times, and carry decisions nobody realises they’re carrying.</p>
+                <p>We believe in recognising their contribution long before they leave. The Dave Method isn’t about extraction — it’s about celebration.</p>
+                <p className="font-display text-[19px] font-medium text-white">The Dave Method exists to turn individual wisdom into a living business brain.</p>
               </div>
             </motion.div>
           </div>
@@ -111,7 +111,7 @@ export default function DavePage() {
                 <span className="flex h-12 w-12 flex-none items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/50">▶</span>
                 <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-white/40">First conversations in production</p>
               </div>
-              <p className="mt-8 font-display text-[clamp(1.3rem,3vw,1.9rem)] font-semibold leading-snug tracking-tight text-gradient">Don’t wait until your Dave retires to discover what the business never captured.</p>
+              <p className="mt-8 font-display text-[clamp(1.3rem,3vw,1.9rem)] font-semibold leading-snug tracking-tight text-gradient">Don’t wait until your Dave retires to discover what the business never protected.</p>
               <div className="mt-8"><a href="/dave/demo" className="group inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/[0.06] px-6 py-3 text-[15px] font-medium text-white/85 transition-colors hover:border-signal/55 hover:text-white">See a living guide <span className="transition-transform group-hover:translate-x-0.5">→</span></a></div>
             </motion.div>
           </div>

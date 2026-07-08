@@ -80,41 +80,48 @@ export default function DaveCalculator({ initialName = 'Dave' }) {
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">Knowledge Risk Assessment</p>
-          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-tightest text-gradient">Work out the floor, not the estimate.</h2>
+          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-tightest text-gradient">The cost of being indispensable.</h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Inputs */}
           <div className="glass rounded-3xl p-7 sm:p-8">
             <div className="space-y-6">
-              <Field id="dave-name" label="Who holds the knowledge" type="text" value={name} onChange={(e) => setName(e.target.value)} hint="A name makes it real. It's rarely just one person." />
-              <Field id="dave-processes" label="Critical processes only they really know" value={processes} onChange={num(setProcesses)} />
-              <Field id="dave-hours" label="Hours / week spent re-explaining" value={hours} onChange={num(setHours)} />
-              <Field id="dave-rate" label="Hourly cost" prefix="£" value={rate} onChange={num(setRate)} hint="£22/hr ≈ £34k/yr fully loaded" />
-              <Field id="dave-rebuild" label="Months to replace them properly" value={rebuildMonths} onChange={num(setRebuildMonths)} />
+              <Field id="dave-name" label="Who holds the knowledge?" type="text" value={name} onChange={(e) => setName(e.target.value)} hint="A name makes it real. It's rarely just one person." />
+              <Field id="dave-processes" label="How many tasks would stop if they weren't here?" value={processes} onChange={num(setProcesses)} />
+              <Field id="dave-hours" label="How many hours a week do they spend repeating themselves?" value={hours} onChange={num(setHours)} />
+              <Field id="dave-rate" label="What is their hourly cost to the business?" prefix="£" value={rate} onChange={num(setRate)} hint="£22/hr ≈ £34k/yr fully loaded" />
+              <Field id="dave-rebuild" label="How many months would it take to replace them properly?" value={rebuildMonths} onChange={num(setRebuildMonths)} />
             </div>
           </div>
 
           {/* Receipt */}
-          <div className="glass rounded-3xl p-7 sm:p-8">
-            <div className="flex items-center justify-between">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/45">Dependency band</p>
-              <p className={`font-display text-[15px] font-semibold ${band.tone}`}>{band.label}</p>
-            </div>
-            <div className="mt-5 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
-              <Line label="Fully-loaded annual cost" working={`£${rate} × ${HOURS_PER_MONTH} × 12`} result={gbp(annualCost)} />
-              <Line label="What it costs while they stay (per year)" working={`${hours} × £${rate} × ${WEEKS_PER_YEAR} wks`} result={`${gbp(repeatCost)}/yr`} strong />
-              <Line label="Recruitment" working={`${gbp(annualCost)} × 15%`} result={gbp(recruitCost)} />
-              <Line label="Rebuild (50% effective while learning)" working={`${rebuildMonths} × £${rate} × ${HOURS_PER_MONTH} × 0.5`} result={gbp(rebuildCost)} />
-              <Line label="Catch-up to competent" working={`${rebuildMonths} × ${WEEKS_PER_MONTH} wks`} result={`≈ ${catchUpWeeks} wks`} />
+          <div className="glass rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/45">Dependency band</p>
+                <p className={`font-display text-[15px] font-semibold ${band.tone}`}>{band.label}</p>
+              </div>
+              <div className="mt-5 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
+                <div className="mb-4">
+                  <p className="text-[15px] font-medium text-white mb-1">Today's daily waste</p>
+                  <p className="text-[13.5px] leading-relaxed text-white/50">Your team currently spends the equivalent of <strong className="text-white">{Math.round(hours * WEEKS_PER_YEAR / 40)} working weeks</strong> every year asking {who} questions the business should already know the answers to.</p>
+                </div>
+                <Line label="Annual cost of repeated explanations" working={`${hours} hrs/wk × £${rate} × ${WEEKS_PER_YEAR} wks`} result={`${gbp(repeatCost)}/yr`} strong />
+              </div>
+
+              <div className="mt-5 rounded-2xl border border-magenta/25 bg-magenta/[0.06] p-6 text-center">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">Total replacement risk</p>
+                <p className="mt-2 font-mono text-[clamp(2.4rem,6vw,3.6rem)] font-semibold leading-none text-white">{gbp(lossExposure)}</p>
+                <p className="mt-2 font-mono text-[11.5px] text-white/40">recruitment {gbp(recruitCost)} + rebuild {gbp(rebuildCost)}</p>
+              </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-magenta/25 bg-magenta/[0.06] p-6 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">Loss exposure</p>
-              <p className="mt-2 font-mono text-[clamp(2.4rem,6vw,3.6rem)] font-semibold leading-none text-white">{gbp(lossExposure)}</p>
-              <p className="mt-2 font-mono text-[11.5px] text-white/40">recruitment {gbp(recruitCost)} + rebuild {gbp(rebuildCost)}</p>
+            <div className="mt-6">
+              <p className="text-[15px] font-medium text-white mb-2">Tomorrow's risk</p>
+              <p className="text-[14px] leading-relaxed text-white/60 italic">"If {who} left tomorrow, replacing what they know could cost at least <strong className="text-white/90 not-italic">{gbp(lossExposure)}</strong>."</p>
+              <p className="mt-3 text-[13px] leading-relaxed text-white/40">This is the absolute floor. It assumes a proper handover, which most departures never get. It doesn't include the value of the opportunities {who} could be chasing if they weren't re-explaining the basics.</p>
             </div>
-            <p className="mt-4 text-[13.5px] leading-relaxed text-white/50">One-off cost of replacing them and rebuilding what they know — and it assumes a proper handover, which most departures never get. Deliberately conservative.</p>
           </div>
         </div>
 
@@ -123,11 +130,11 @@ export default function DaveCalculator({ initialName = 'Dave' }) {
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">What this number deliberately leaves out</p>
           <ul className="grid gap-3 sm:grid-cols-2">
             {[
-              'The questions junior staff never ask.',
-              `What ${who} could contribute if they weren't re-explaining.`,
-              `Whether another ${who} can be found at all.`,
-              'The goodwill already gone by the time notice is handed in.',
-              'Quality slips while the knowledge rebuilds.',
+              'The silent mistakes made because staff were too afraid to ask twice.',
+              `The high-value projects ${who} could be leading instead of repeating the basics.`,
+              `The risk that a replacement for ${who}’s experience doesn’t exist in the market.`,
+              'The institutional memory that disappears weeks before the notice period ends.',
+              'The cost of inconsistent decisions while the new person catches up.',
             ].map((item) => (
               <li key={item} className="flex gap-3 text-[14.5px] leading-relaxed text-white/70"><span className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full bg-magenta/70"></span>{item}</li>
             ))}
@@ -149,9 +156,9 @@ export default function DaveCalculator({ initialName = 'Dave' }) {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="mt-8">
             <div className="grid gap-5 md:grid-cols-3">
               {[
-                { tag: 'Days 1–30 · Audit', body: <>Walk the floor <strong className="font-semibold text-white">with</strong> {who}, not around them. Confirm the {processes} processes. The {hours} hrs/week of re-explaining is the priority list — already written.</> },
-                { tag: 'Days 31–60 · Build', body: <>Film the top 3 as short, shift-friendly modules, {who} presenting, name on it. <em className="text-white/80">New starters can watch it five times without anyone knowing it took five. Nobody has to look stupid to learn.</em></> },
-                { tag: 'Days 61–90 · Prove it', body: <>Measure one number: time to competent and signed-off. Compare against {gbp(repeatCost)}/yr.</> },
+                { tag: 'Days 1–30 · Recognise', body: <>Walk the floor <strong className="font-semibold text-white">with</strong> {who}, not around them. We celebrate their contribution by identifying the {processes} processes they carry. The {hours} hrs/week of re-explaining becomes our priority list.</> },
+                { tag: 'Days 31–60 · Preserve', body: <>Turn {who}’s judgement into a shared organisational memory. Create short, searchable guides with {who}’s name on them. <em className="text-white/80">New starters can learn at their own pace. Nobody has to look stupid to learn.</em></> },
+                { tag: 'Days 61–90 · Compound', body: <>Measure the impact: time to competent and signed-off. Watch your business get smarter every month as experience compounds instead of disappearing.</> },
               ].map((phase) => (
                 <article key={phase.tag} className="glass glass-hover flex flex-col rounded-3xl p-6">
                   <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-signal">{phase.tag}</p>

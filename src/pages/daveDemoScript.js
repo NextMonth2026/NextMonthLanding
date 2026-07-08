@@ -4,18 +4,18 @@
 // Frank is a fictional guide; every business's "Dave" has their own name.
 
 export const meta = {
-  title: 'See a Living Guide — The Dave Method | NextMonth',
+  title: 'See a Living Business Brain — The Dave Method | NextMonth',
   description:
-    'Step into a demonstration of a NextMonth living guide: ask a 31-year expert what he checks first, and why.',
+    'Step into a demonstration of a NextMonth living business brain: ask a 31-year expert what he checks first, and why.',
 };
 
 // Persistent honesty badge — rendered on every stage.
 export const badge =
-  'Demonstration — Frank is a fictional guide built to show how a real capture behaves.';
+  'Demonstration — Frank is a fictional guide built to show how a real business brain behaves.';
 
 // Stage 1 — ENTER
 export const enter = {
-  eyebrow: 'A NextMonth Living Guide · Recognising Excellence',
+  eyebrow: 'A Living Business Brain · Recognising Excellence',
   headline: 'Step into the goods-in bay.',
   scene: [
     "It's 6:40am. The first lorry of the morning is backed onto the bay, curtain-side already open, and the chilled air is rolling out over the concrete before anyone's had a coffee.",

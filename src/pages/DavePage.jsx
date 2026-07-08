@@ -26,12 +26,10 @@ export default function DavePage() {
     document.title = 'The Dave Method — NextMonth';
     const meta = document.querySelector('meta[name="description"]');
     const prevDesc = meta ? meta.getAttribute('content') : null;
-    if (meta) meta.setAttribute('content', 'Work out how much operational judgement is trapped inside your key people — and what it costs if they leave. Free knowledge-risk calculator and 90-day protection plan.');
+    if (meta) meta.setAttribute('content', 'Work out how much operational judgement is trapped inside your key people — and what it costs if they leave. Free knowledge-risk calculator and organisational diagnosis.');
     return () => { document.title = prevTitle; if (meta && prevDesc !== null) meta.setAttribute('content', prevDesc); };
   }, []);
 
-  // Lazy-loaded pages mount after the browser has already tried (and failed) to
-  // honour a location hash like /dave#calculator, so scroll to it once mounted.
   useEffect(() => {
     const id = window.location.hash.slice(1);
     if (!id) return;
@@ -83,7 +81,7 @@ export default function DavePage() {
         </section>
 
         {/* 3. The calculator */}
-        <DaveCalculator />
+        <DaveCalculator initialNames={['Dave']} />
 
         {/* 4. The belief */}
         <section className="relative py-24 lg:py-32">
@@ -123,7 +121,7 @@ export default function DavePage() {
           <div className="mx-auto max-w-3xl px-6 text-center">
             <motion.div {...reveal}>
               <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-semibold leading-[1.06] tracking-tightest text-gradient">Book a floor-walk audit.</h2>
-              <p className="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-white/65">We map your Knowledge Carriers — by dependency, not job title — and the five processes that break first.</p>
+              <p className="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-white/65">We map your indispensable people — by dependency, not job title — and the five processes that break first.</p>
               <div className="mt-10"><a href="/#founding" style={primary} className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold transition-transform hover:scale-[1.03]">Book a floor-walk audit <span>→</span></a></div>
             </motion.div>
           </div>

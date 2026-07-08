@@ -30,6 +30,15 @@ export default function DavePage() {
     return () => { document.title = prevTitle; if (meta && prevDesc !== null) meta.setAttribute('content', prevDesc); };
   }, []);
 
+  // Lazy-loaded pages mount after the browser has already tried (and failed) to
+  // honour a location hash like /dave#calculator, so scroll to it once mounted.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-ink">
       <Nav />
@@ -103,6 +112,7 @@ export default function DavePage() {
                 <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-white/40">First conversations in production</p>
               </div>
               <p className="mt-8 font-display text-[clamp(1.3rem,3vw,1.9rem)] font-semibold leading-snug tracking-tight text-gradient">Don’t wait until your Dave retires to discover what the business never captured.</p>
+              <div className="mt-8"><a href="/dave/demo" className="group inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/[0.06] px-6 py-3 text-[15px] font-medium text-white/85 transition-colors hover:border-signal/55 hover:text-white">See a living guide <span className="transition-transform group-hover:translate-x-0.5">→</span></a></div>
             </motion.div>
           </div>
         </section>

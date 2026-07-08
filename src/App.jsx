@@ -4,6 +4,7 @@ import NodeNetwork from './NodeNetwork.jsx';
 import { Nav, Footer, primary } from './components/SiteChrome.jsx';
 
 const DavePage = lazy(() => import('./pages/DavePage.jsx'));
+const DaveDemoPage = lazy(() => import('./pages/DaveDemoPage.jsx'));
 
 const ease = [0.22, 1, 0.36, 1];
 const studio = 'https://res.cloudinary.com/drl0fxrkq/image/upload/v1774170533/Screenshot_2026-03-22_at_09.08.31_vfdgiz.png';
@@ -41,6 +42,7 @@ function currentPath() { return typeof window !== 'undefined' ? window.location.
 export default function App() {
   const [path, setPath] = useState(currentPath);
   useEffect(() => { const onPop = () => setPath(currentPath()); window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop); }, []);
+  if (path === '/dave/demo') return <Suspense fallback={<PageLoader />}><DaveDemoPage /></Suspense>;
   if (path === '/dave') return <Suspense fallback={<PageLoader />}><DavePage /></Suspense>;
   return <HomePage />;
 }

@@ -15,7 +15,7 @@ export const badge =
 
 // Stage 1 — ENTER
 export const enter = {
-  eyebrow: 'A NextMonth Living Guide · Demonstration',
+  eyebrow: 'A NextMonth Living Guide · Recognising Excellence',
   headline: 'Step into the goods-in bay.',
   scene: [
     "It's 6:40am. The first lorry of the morning is backed onto the bay, curtain-side already open, and the chilled air is rolling out over the concrete before anyone's had a coffee.",
@@ -122,10 +122,10 @@ export const check = {
 
 // Stage 5 — THE TURN (close to sales)
 export const turn = {
-  eyebrow: 'What just happened',
+  eyebrow: 'Recognition at scale',
   paragraphs: [
-    'You just learned Frank\'s judgement in ninety seconds — without interrupting him, without looking stupid, without waiting for him to get back from lunch. New starters can do this five times over. Nobody ever knows it took five.',
-    'This is what a NextMonth capture becomes. Filmed with your expert, validated against your records, and kept true as your floor changes.',
+    'You just learned Frank\'s judgement in ninety seconds — without interrupting him, without looking stupid, and without waiting for him to become available. New starters can do this five times over. Nobody ever knows it took five.',
+    'This is what NextMonth does: we recognise the contribution of your best people and turn their experience into a living business brain that helps everyone grow.',
   ],
   primaryCta: { label: 'Work out what your Frank is worth', href: '/dave#calculator' },
   secondaryCta: { label: 'Book a floor-walk audit', href: '/#founding' },

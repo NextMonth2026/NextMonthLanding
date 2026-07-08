@@ -33,8 +33,8 @@ function Hero({ onFind }) {
       </div>
       <div className="mx-auto max-w-4xl px-6 text-center">
         <motion.p {...fade(0)} className="mb-6 inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-signal/90">Vision First. Platform Second.</motion.p>
-        <motion.h1 {...fade(0.08)} className="font-display text-[clamp(2.9rem,7.5vw,5.4rem)] font-bold leading-[0.98] tracking-tightest text-gradient">You say you value your people.<br className="hidden sm:block" /> Prove it.</motion.h1>
-        <motion.p {...fade(0.18)} className="mx-auto mt-7 max-w-2xl text-[18px] leading-relaxed text-white/65">Every organisation depends on people who quietly know how things really work. The first question isn’t how to protect their knowledge. The first question is: Do you know who they are?</motion.p>
+        <motion.h1 {...fade(0.08)} className="font-display text-[clamp(2.5rem,6.5vw,4.8rem)] font-bold leading-[1.02] tracking-tightest text-gradient">The most valuable asset in your business walks out of the building every evening.</motion.h1>
+        <motion.p {...fade(0.18)} className="mx-auto mt-7 max-w-2xl text-[18px] leading-relaxed text-white/65">Every organisation depends on people who quietly hold the judgement that makes things work. But when they leave, that judgement leaves with them. The first question isn’t how to protect their knowledge. The first question is: Do you know who they are?</motion.p>
         <motion.div {...fade(0.28)} className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button onClick={onFind} style={primary} className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-semibold transition-transform hover:scale-[1.03]">Find Them <span className="transition-transform group-hover:translate-x-0.5">→</span></button>
           <a href="/dave" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] px-8 py-4 text-[15px] font-medium text-white/85 transition-colors hover:border-white/35 hover:text-white">Learn our methodology</a>
@@ -54,9 +54,9 @@ function VisibilitySection() {
           <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-tightest text-gradient">Organisation charts tell you who reports to whom. They don’t tell you who everyone depends on.</h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {[
-              { label: 'Some call them experts.', body: 'They hold the undocumented history of why things are the way they are.' },
-              { label: 'Some call them mentors.', body: 'They are the silent engine of onboarding and professional growth.' },
-              { label: 'We call them Guides.', body: 'They are the person everyone quietly turns to when something unexpected happens.' }
+              { label: 'Some call them experts.', body: 'They hold the history of every “why” that never made it into a manual.' },
+              { label: 'Some call them mentors.', body: 'They are the reason new starters don’t quit in their first month.' },
+              { label: 'We call them Guides.', body: 'They are the person you call when the system fails and nobody knows why.' }
             ].map((item, i) => (
               <div key={i} className="space-y-4">
                 <h3 className="font-display text-xl font-medium text-white">{item.label}</h3>
@@ -159,14 +159,14 @@ function ReflectionSection({ guideName }) {
         <motion.div {...reveal} className="text-center">
           <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.22em] text-signal/80">You say you value your people. Now prove it.</p>
           <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-semibold leading-tight tracking-tightest text-gradient mb-12">
-            Organisations depend on {guideName}. <br />But have they protected what {guideName} knows?
+            The business depends on {guideName}. <br />But {guideName} is currently a bottleneck.
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 text-left">
             {[
-              { q: `Have you recognised ${guideName}?`, a: 'Not just for their job title, but for the silent burden of judgement they carry.' },
-              { q: `Have you captured what ${guideName} has learned?`, a: 'The years of experience that don’t exist in any manual or onboarding document.' },
-              { q: `Have you invested in retaining ${guideName}?`, a: 'Because when they leave, a piece of the organisation’s memory leaves with them.' },
-              { q: `Have you shared that knowledge?`, a: 'So the whole team can benefit from the judgement {guideName} has earned.' }
+              { q: `Are you celebrating ${guideName}?`, a: 'Not just for their job title, but for the silent burden of judgement they carry every day.' },
+              { q: `Are you protecting what ${guideName} knows?`, a: 'The years of experience that don’t exist in any manual and would disappear if they left.' },
+              { q: `How many times a day is ${guideName} interrupted?`, a: 'They spend hours explaining things the business should already know the answers to.' },
+              { q: `What happens if ${guideName} leaves?`, a: 'The whole team loses the judgement they depend on to make consistent decisions.' }
             ].map((item, i) => (
               <div key={i} className="glass rounded-2xl p-6 border border-white/5">
                 <h3 className="font-display text-lg font-medium text-white mb-2">{item.q}</h3>
@@ -184,11 +184,11 @@ function ReflectionSection({ guideName }) {
 function DaveMethodSection() {
   const reveal = useReveal();
   const movements = [
-    { title: 'Recognise', body: 'Identify the people who carry the business in their heads.' },
-    { title: 'Capture', body: 'Turn silent judgement into reusable, connected assets.' },
-    { title: 'Validate', body: 'Ensure the knowledge is accurate, current and trusted.' },
+    { title: 'Recognise', body: 'Identify the remarkable people who carry the business in their heads.' },
+    { title: 'Celebrate', body: 'Recognise their contribution by turning silent judgement into lasting assets.' },
+    { title: 'Validate', body: 'Ensure the shared memory is accurate, current and trusted.' },
     { title: 'Translate', body: 'Make expertise accessible to everyone, regardless of their level.' },
-    { title: 'Compound', body: 'Turn individual wisdom into a growing organisational memory.' }
+    { title: 'Compound', body: 'Turn individual wisdom into a growing organisational brain.' }
   ];
 
   return (
@@ -196,8 +196,8 @@ function DaveMethodSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div {...reveal} className="max-w-3xl mb-16">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">The Methodology</p>
-          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-tightest text-gradient">The Dave Method helps remarkable people share years of judgement with the whole organisation.</h2>
-          <p className="mt-6 text-white/60 text-lg leading-relaxed">We call these people <strong>Guides</strong>. The Dave Method is the process of turning their expertise into an Opportunity Operating System.</p>
+          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-tightest text-gradient">We celebrate the judgement of your most remarkable people.</h2>
+          <p className="mt-6 text-white/60 text-lg leading-relaxed">We call these people <strong>Guides</strong>. The Dave Method is the process of helping their experience benefit everyone, ensuring their contribution grows the whole organisation.</p>
         </motion.div>
 
         <div className="grid gap-5 md:grid-cols-5">
@@ -255,9 +255,9 @@ function PlatformEvidence() {
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           <motion.div {...reveal}>
             <h3 className="font-display text-3xl font-semibold text-white mb-6">Your Intelligent Chief of Staff</h3>
-            <p className="text-white/60 text-lg leading-relaxed mb-6">Norman works proactively in the background, continuously connecting the dots across your content library and identifying hidden opportunities worth acting on.</p>
+            <p className="text-white/60 text-lg leading-relaxed mb-6">Norman works proactively in the background, continuously connecting the dots across your living business brain and identifying hidden opportunities worth acting on.</p>
             <div className="space-y-4">
-              {['Norman connects people and projects', 'Knowledge graphs map hidden relationships', 'AI guides provide searchable wisdom', 'Opportunity Engine fuels commercial movement'].map(item => (
+              {['Norman connects people and projects', 'Knowledge graphs map hidden relationships', 'Intelligent operational companions', 'Opportunity Engine fuels commercial movement'].map(item => (
                 <div key={item} className="flex items-center gap-3 text-white/80 font-medium">
                   <span className="h-1.5 w-1.5 rounded-full bg-signal"></span>
                   {item}
@@ -284,10 +284,10 @@ function IceMakerSection() {
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <motion.div {...reveal} className="glass rounded-[2rem] p-8 sm:p-12 lg:p-16 border-magenta/10">
           <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.22em] text-magenta/80">IceMaker</p>
-          <h2 className="font-display text-[clamp(1.9rem,4vw,2.9rem)] font-semibold leading-tight tracking-tightest text-gradient mb-6">NextMonth captures judgement. <br />IceMaker puts it to work.</h2>
-          <p className="text-white/70 text-lg leading-relaxed mb-10">Captured judgement becomes interactive training, onboarding, searchable guidance and practical learning experiences. IceMaker is the delivery engine for your organisational memory.</p>
+          <h2 className="font-display text-[clamp(1.9rem,4vw,2.9rem)] font-semibold leading-tight tracking-tightest text-gradient mb-6">NextMonth protects judgement. <br />IceMaker puts it to work.</h2>
+          <p className="text-white/70 text-lg leading-relaxed mb-10">Protected judgement becomes interactive training, onboarding, and intelligent operational companions. IceMaker is the delivery engine for your organisational brain.</p>
           <div className="grid gap-4 sm:grid-cols-2">
-            {['Interactive Training', 'Smart Onboarding', 'Searchable AI Guides', 'Operational Support'].map(item => (
+            {['Interactive Training', 'Smart Onboarding', 'Operational Companions', 'Operational Support'].map(item => (
               <div key={item} className="bg-white/[0.03] rounded-xl px-5 py-4 border border-white/5 text-white/80 font-medium">{item}</div>
             ))}
           </div>
@@ -310,9 +310,9 @@ function VisionClosing() {
           <div className="grid gap-6 text-left sm:grid-cols-2">
             {[
               'Every new starter learns from your best people.',
-              'Nobody has to feel embarrassed asking the same question twice.',
-              'Managers stop repeating themselves.',
-              'Your organisational memory grows every month.'
+              'Nobody waits for Dave to become available.',
+              'Your experience grows every year instead of disappearing.',
+              'Your business becomes smarter every month.'
             ].map((item, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <span className="h-6 w-6 rounded-full bg-signal/20 flex items-center justify-center flex-none mt-1">
@@ -355,7 +355,7 @@ function DiagnosticFailure({ onReset }) {
       <div className="mx-auto max-w-3xl px-6 text-center">
         <motion.div {...reveal} className="glass rounded-[2rem] p-8 sm:p-12 border-magenta/20">
           <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-tight tracking-tightest text-gradient mb-6">Your organisation may not know where its operational judgement actually lives.</h2>
-          <p className="text-white/60 text-lg leading-relaxed mb-10">This is the first diagnosis. When expertise is invisible, it’s also unprotected. We can help you map your Knowledge Carriers by dependency, not job title.</p>
+          <p className="text-white/60 text-lg leading-relaxed mb-10">This is the first diagnosis. When expertise is invisible, it’s also unprotected. We can help you map your indispensable people by dependency, not job title.</p>
           <div className="flex flex-col gap-4 sm:flex-row justify-center">
             <a href="#founding" style={primary} className="group inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-[15px] font-semibold transition-transform hover:scale-[1.03]">Book a Knowledge Discovery Workshop <span className="transition-transform group-hover:translate-x-0.5">→</span></a>
             <button onClick={onReset} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.03] px-8 py-4 text-[15px] font-medium text-white/85 transition-colors hover:border-white/35 hover:text-white">Try assessment again</button>

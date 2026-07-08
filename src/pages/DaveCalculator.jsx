@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { primary } from '../components/SiteChrome.jsx';
 
@@ -54,8 +54,9 @@ function Line({ label, working, result, strong }) {
   );
 }
 
-export default function DaveCalculator() {
-  const [name, setName] = useState('Dave');
+export default function DaveCalculator({ initialName = 'Dave' }) {
+  const [name, setName] = useState(initialName);
+  useEffect(() => { setName(initialName); }, [initialName]);
   const [processes, setProcesses] = useState(12);
   const [hours, setHours] = useState(6);
   const [rate, setRate] = useState(22);

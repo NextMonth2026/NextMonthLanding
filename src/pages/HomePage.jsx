@@ -47,7 +47,7 @@ function Hero({ onFind }) {
             Now imagine that hard drive stood up one Friday afternoon… <br/>and left forever.
           </h1>
           <p className="mx-auto max-w-2xl text-[20px] leading-relaxed text-white/70">
-            You’d never allow that to happen. But that’s exactly what’s happening. Because we’re not talking about a hard drive. We’re talking about one of your people.
+            NextMonth helps businesses preserve and grow the judgement of their best people.
           </p>
         </motion.div>
 
@@ -183,7 +183,7 @@ function LivingBusinessBrainSection() {
             <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">The Central Proposition</p>
             <h2 className="font-display text-[clamp(2.2rem,5vw,3.5rem)] font-semibold leading-tight tracking-tightest text-gradient">Your business already has intelligence. It’s simply fragmented.</h2>
             <p className="mt-8 text-white/70 text-lg leading-relaxed">
-              NextMonth helps you build a <strong>living business brain</strong> from the judgement, experience and expertise already inside your organisation.
+              NextMonth helps you build a <strong>living business brain</strong> from the judgement, experience and expertise already inside your organisation. Then, IceMaker turns that judgement into interactive training, onboarding, and operational support.
             </p>
             <div className="mt-10 space-y-4">
               {[
@@ -245,9 +245,9 @@ function DaveMethodSection() {
   const movements = [
     { title: 'Recognise', body: 'Identify the remarkable people who carry the business in their heads.' },
     { title: 'Celebrate', body: 'Recognise their contribution by turning silent judgement into lasting organisational memory.' },
-    { title: 'Capture', body: 'Secure the experience and expertise before it leaves the building.' },
+    { title: 'Capture', body: 'Brain Maker: Secure the experience and expertise through a guided, serious production process.' },
     { title: 'Validate', body: 'Ensure the shared memory is accurate, current and trusted.' },
-    { title: 'Translate', body: 'Make expertise accessible to everyone, regardless of their level.' },
+    { title: 'Translate', body: 'IceMaker: Turn the captured judgement into interactive training, onboarding, guides and operational support.' },
     { title: 'Grow', body: 'Turn individual wisdom into a growing organisational brain.' }
   ];
 
@@ -275,6 +275,59 @@ function DaveMethodSection() {
               <p className="text-[13px] leading-relaxed text-white/45">{m.body}</p>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BrainMakerSection() {
+  const reveal = useReveal();
+  return (
+    <section className="relative py-24 lg:py-32 bg-ink/50 overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute right-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-signal/[0.08] blur-[120px]"></div>
+      </div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <motion.div {...reveal}>
+            <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-magenta">The Capture Experience</p>
+            <h2 className="font-display text-[clamp(2.2rem,5vw,3.5rem)] font-semibold leading-tight tracking-tightest text-gradient">Enter Brain Maker</h2>
+            <p className="mt-8 text-white/80 text-lg leading-relaxed">
+              Brain Maker is the guided NextMonth experience for turning hard-earned human experience into a living business brain.
+            </p>
+            <p className="mt-6 text-white/60 text-lg leading-relaxed">
+              It does not ask people to fill in a quick form.
+            </p>
+            <p className="mt-6 text-white/60 text-lg leading-relaxed">
+              It interviews them over time, follows the threads that matter, separates proven judgement from outdated habits, and helps structure what they know into something the whole organisation can use.
+            </p>
+            <p className="mt-8 text-white/40 text-sm italic">
+              Powered by CharacterX, Rob Hutt’s 2026 transformation methodology, and the NextMonth Knowledge Capture Protocol.
+            </p>
+            <div className="mt-10">
+              <button style={primary} className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-[16px] font-semibold transition-transform hover:scale-[1.03]">
+                Start the Brain Maker process <span className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
+            </div>
+          </motion.div>
+          <motion.div {...reveal} className="glass rounded-[2rem] p-10 border border-white/10 relative">
+             <div className="absolute inset-0 bg-magenta/5 blur-[80px] -z-10"></div>
+             <div className="space-y-8">
+                <div className="flex items-center gap-4 border-b border-white/5 pb-6">
+                   <div className="h-3 w-3 rounded-full bg-magenta animate-pulse"></div>
+                   <p className="font-mono text-xs uppercase tracking-widest text-white/40">Guided Capture in Progress</p>
+                </div>
+                <div className="space-y-4">
+                   <div className="h-4 w-3/4 rounded bg-white/5"></div>
+                   <div className="h-4 w-1/2 rounded bg-white/5"></div>
+                   <div className="h-4 w-2/3 rounded bg-white/5"></div>
+                </div>
+                <div className="pt-4">
+                   <p className="font-display text-xl text-white/80 italic font-medium">"It separates proven judgement from outdated habits..."</p>
+                </div>
+             </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -373,6 +426,7 @@ export default function HomePage() {
             <DaveMethodSection />
             <PersonalizedCalculator guideNames={guideNames} />
             <LivingBusinessBrainSection />
+            <BrainMakerSection />
             <HumanBenefitSection />
             <FinalCTA onReset={resetAssessment} />
           </motion.div>

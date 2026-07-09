@@ -59,6 +59,75 @@ function Hero({ onFind }) {
   );
 }
 
+function VisionSection() {
+  const reveal = useReveal();
+  return (
+    <section className="relative py-24 lg:py-32 overflow-hidden">
+      <div className="mx-auto max-w-5xl px-6 lg:px-10">
+        <motion.div {...reveal} className="text-center mb-16">
+          <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-tightest text-gradient mb-8">
+            People come and go.<br />
+            Your business should keep getting smarter.
+          </h2>
+          <div className="mx-auto max-w-3xl space-y-6 text-lg sm:text-xl text-white/70 leading-relaxed">
+            <p>
+              People retire. People move on. New people join.
+            </p>
+            <p>
+              Traditionally organisations lose capability every time this happens.
+            </p>
+            <p className="text-white font-medium">
+              NextMonth believes the opposite should happen.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          <motion.div {...reveal} className="glass p-8 sm:p-12 flex flex-col justify-center border-magenta/20 relative group">
+            <div className="absolute inset-0 bg-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]"></div>
+            <div className="space-y-4 relative z-10">
+              {[
+                'Every guide you recognise.',
+                'Every lesson you validate.',
+                'Every improvement you preserve.',
+                'Every judgement you capture.'
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 rounded-full bg-magenta"></span>
+                  <p className="text-white/80 font-medium">{text}</p>
+                </div>
+              ))}
+              <p className="mt-8 pt-6 border-t border-white/10 text-xl text-white">
+                Makes the organisation permanently stronger.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div {...reveal} className="glass p-8 sm:p-12 flex flex-col justify-center border-signal/20">
+            <div className="space-y-6">
+              <p className="text-lg leading-relaxed text-white/60">
+                This is your <span className="text-signal font-semibold">Business Brain</span>—a growing shared intelligence that lives within your organisation.
+              </p>
+              <p className="text-lg leading-relaxed text-white/60">
+                It isn't a database or a document store. It's an appreciating organisational asset that matures every time an expert contributes.
+              </p>
+              <div className="pt-4">
+                <p className="font-display text-2xl font-bold text-white leading-tight">
+                  People come and go.<br />
+                  <span className="text-gradient">Their value doesn't have to.</span>
+                </p>
+              </div>
+              <p className="text-white/40 text-sm italic">
+                Next: Discover how Brain Maker captures this value.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function VisibilitySection() {
   const reveal = useReveal();
   return (
@@ -405,6 +474,7 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero onFind={scrollToAssessment} />
+        <VisionSection />
         <VisibilitySection />
         <DiscoveryAssessment
           onIdentified={(names) => {

@@ -281,10 +281,59 @@ function DaveMethodSection() {
   );
 }
 
+function AIGoldRushSection() {
+  const reveal = useReveal();
+  return (
+    <section className="relative py-24 lg:py-32 bg-ink">
+      <div className="mx-auto max-w-4xl px-6 lg:px-10">
+        <motion.div {...reveal} className="space-y-12">
+          <div className="max-w-3xl">
+             <h2 className="font-display text-[clamp(2.2rem,5vw,3.8rem)] font-semibold leading-[1.1] tracking-tightest text-gradient mb-8">
+               Before you buy more artificial intelligence, capture your actual intelligence.
+             </h2>
+             <div className="space-y-6 text-white/70 text-lg sm:text-xl leading-relaxed">
+               <p>Every week there's another AI model. Another subscription. Another promise of smarter software.</p>
+               <p>
+                 But none of those systems know your customers. Your suppliers. Your culture. Your workarounds. Your judgement. Or the twenty years your best people have spent learning how your business really works.
+               </p>
+               <p>That knowledge already exists. It's simply trapped inside people.</p>
+               <p>
+                 NextMonth helps organisations transform that fragmented experience into a living business brain that can support every department, every new starter and every future decision.
+               </p>
+               <p className="text-white/40 italic">
+                 AI becomes dramatically more valuable when it's built on your organisation's own judgement rather than generic knowledge.
+               </p>
+             </div>
+          </div>
+
+          <div className="border-l-2 border-magenta/40 pl-8 py-2">
+             <p className="font-display text-2xl sm:text-3xl font-medium text-white/90 leading-tight">
+               The smartest model in the world cannot know what only your people have learned.
+             </p>
+             <p className="mt-4 font-display text-2xl sm:text-3xl font-medium text-magenta leading-tight">
+               That's your competitive advantage.
+             </p>
+          </div>
+
+          <div className="pt-4">
+            <button
+              onClick={() => document.getElementById('brain-maker')?.scrollIntoView({ behavior: 'smooth' })}
+              style={primary}
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-[16px] font-semibold transition-transform hover:scale-[1.03]"
+            >
+              Start building your business brain <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function BrainMakerSection() {
   const reveal = useReveal();
   return (
-    <section className="relative py-24 lg:py-32 bg-ink/50 overflow-hidden">
+    <section id="brain-maker" className="relative py-24 lg:py-32 bg-ink/50 overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-signal/[0.08] blur-[120px]"></div>
       </div>
@@ -426,6 +475,7 @@ export default function HomePage() {
             <DaveMethodSection />
             <PersonalizedCalculator guideNames={guideNames} />
             <LivingBusinessBrainSection />
+            <AIGoldRushSection />
             <BrainMakerSection />
             <HumanBenefitSection />
             <FinalCTA onReset={resetAssessment} />
